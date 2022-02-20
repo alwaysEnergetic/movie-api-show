@@ -1,8 +1,26 @@
-import React from 'react';
-import '../../styles.css';
+import React from "react";
+import "../../styles.css";
 
-const Dropdown = () => {
-  return <h3 className="footer">&copy; 2021-02-20 John Chang</h3>;
+const Dropdown = (props) => {
+  const opts = props.opts;
+
+  return (
+    <form>
+      <label>Filter by Genre</label>
+      <select name="Genre" onChange={props.selectHandler}>
+        <option value="" defaultValue="">
+          All
+        </option>
+        {opts.map((item) => {
+          return (
+            <option key={item.id} value={item.name}>
+              {item.name}
+            </option>
+          );
+        })}
+      </select>
+    </form>
+  );
 };
 
 export default Dropdown;

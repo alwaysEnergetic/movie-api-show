@@ -12,6 +12,10 @@ const Search = ({ formHandler, clearSearch }) => {
     e.preventDefault();
   };
 
+  const handleClear = () => {
+    clearSearch();
+    setFormValues("");
+  };
   return (
     <div className="search">
       <div>
