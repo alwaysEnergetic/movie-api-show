@@ -14,6 +14,6 @@ exports.GENRES = [
   { id: 13, name: "Biography" },
   { id: 14, name: "Horror" },
   { id: 15, name: "Fantasy" },
-  { id: 16, name: "Dark comedy'" },
+  { id: 16, name: "Dark comedy" },
   { id: 17, name: "Science fiction" },
 ];

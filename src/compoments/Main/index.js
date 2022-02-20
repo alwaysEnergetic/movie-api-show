@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Table from "../Table";
+import Dropdown from "../Dropdown";
+import Search from "../Search";
+import { GENRES } from "./constants/genres";
+import { FAKEDATA } from "./constants/fakeData";
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
@@ -7,24 +12,25 @@ const Main = () => {
   const [actvieQuery, setActiveQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const getMovies = async () => {
-    setIsLoading(true);
-    const response = await fetch(
-      "https://code-challenge.spectrumtoolbox.com/api/restaurants",
-      {
-        headers: {
-          Authorization: "Api-Key q3MNxtfep8Gt",
-        },
-      }
-    );
-    const responseData = await response.json();
-    const { movies } = responseData;
-    setIsLoading(false);
-    console.log("--------------movies------------", movies);
-    setMovies(movies);
-    setDisplayMovies(movies);
-  };
+  // const getMovies = async () => {
+  //   setIsLoading(true)
+  //   const response = await fetch(
+  //     'https://code-challenge.spectrumtoolbox.com/api/restaurants',
+  //     {
+  //       headers: {
+  //         Authorization: 'Api-Key q3MNxtfep8Gt',
+  //       },
+  //     },
+  //   )
+  //   const responseData = await response.json()
+  //   const { movies } = responseData
+  //   setIsLoading(false)
+  //   console.log('--------------movies------------', movies)
+  //   setMovies(movies)
+  //   setDisplayMovies(movies)
+  // }
 
+  console.log("-----------fakedata==========", FAKEDATA);
   const handleSelect = (e) => {
     const targetValue = e.target.value;
     setActiveGenre(targetValue);
@@ -35,6 +41,10 @@ const Main = () => {
     setActiveQuery(standardValue);
   };
 
+  const clearSearch = () => {
+    setActiveGenre("");
+    setActiveQuery("");
+  };
   const filterGenre = (movie) => {};
 
   const filterSearch = (movie) => {
@@ -44,9 +54,9 @@ const Main = () => {
     }
   };
 
-  useEffect(() => {
-    getMovies();
-  }, []);
+  // useEffect(() => {
+  //   getMovies()
+  // }, [])
 
   return (
     <>
