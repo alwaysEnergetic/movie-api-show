@@ -25,7 +25,37 @@ const Main = () => {
     setDisplayMovies(movies);
   };
 
-  return <h1>Charter/Spectrum Front-End Code Challenge</h1>;
+  const handleSelect = (e) => {
+    const targetValue = e.target.value;
+    setActiveGenre(targetValue);
+  };
+
+  const formHandler = (value) => {
+    let standardValue = value.toLowerCase();
+    setActiveQuery(standardValue);
+  };
+
+  const filterGenre = (movie) => {};
+
+  const filterSearch = (movie) => {
+    if (actvieQuery) {
+      let standardTitle = movie.title.toLowerCase();
+      let standardGenre = movie.genre;
+    }
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  return (
+    <>
+      <Search formHandler={formHandler} clearSearch={clearSearch} />
+      <Dropdown name={"Genre"} opts={GENRES} selectHandler={handleSelect} />
+      <Table props={displayMovies} />
+      <h2>{isLoading ? "Loading" : ""}</h2>
+    </>
+  );
 };
 
 export default Main;
