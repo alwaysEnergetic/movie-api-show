@@ -1,7 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  React.useEffect(() => {
+    getMovies();
+  });
+
+  const getMovies = async () => {
+    const response = await fetch(
+      "https://code-challenge.spectrumtoolbox.com/api/movies",
+      {
+        headers: {
+          Authorization: "Api-Key q3MNxtfep8Gt",
+        },
+      }
+    );
+
+    const responseData = await response.json();
+    const { data } = responseData;
+    console.log("----------", data);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
