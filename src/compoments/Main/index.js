@@ -9,7 +9,7 @@ const Main = () => {
   const [movies, setMovies] = useState([]);
   const [displayMovies, setDisplayMovies] = useState([]);
   const [activeGenre, setActiveGenre] = useState("");
-  const [actvieQuery, setActiveQuery] = useState("");
+  const [activeQuery, setActiveQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const getMovies = async () => {
@@ -30,8 +30,6 @@ const Main = () => {
     setDisplayMovies(FAKEDATA);
   };
 
-  console.log("-----------fakedata==========", FAKEDATA);
-
   const formHandler = (value) => {
     let standardValue = value.toLowerCase();
     setActiveQuery(standardValue);
@@ -46,16 +44,37 @@ const Main = () => {
     const targetValue = e.target.value;
     setActiveGenre(targetValue);
   };
-  console.log("------------activeGenre---------", activeGenre);
 
-  const filterGenre = (movie) => {};
+  console.log("------------activeGenre---------", activeGenre, activeQuery);
 
-  const filterSearch = (movie) => {
-    if (actvieQuery) {
-      let standardTitle = movie.title.toLowerCase();
-      let standardGenre = movie.genre;
+  const filterGenre = (movie) => {
+    if (activeGenre) {
+      return movie.genres.join().includes(activeGenre);
+    } else {
+      return movie;
     }
   };
+
+  const filterSearch = (movie) => {
+    if (activeQuery) {
+      let standardTitle = movie.title.toLowerCase();
+      let standardGenre = movie.genres.join().toLowerCase();
+      if (standardTitle.includes(activeQuery) || standardGenre.includes(activeQuery)) {
+        return movie;
+      }
+    } else {
+      return movie;
+    }
+  };
+
+  useEffect(() => {
+    let result = movies.filter(filterGenre);
+
+    result = result.filter(filterSearch);
+    setDisplayMovies(result);
+  }, [activeGenre, activeQuery]);
+
+  console.log("-------result------", displayMovies);
 
   useEffect(() => {
     getMovies();
