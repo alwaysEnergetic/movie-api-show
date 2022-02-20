@@ -45,8 +45,6 @@ const Main = () => {
     setActiveGenre(targetValue);
   };
 
-  console.log("------------activeGenre---------", activeGenre, activeQuery);
-
   const filterGenre = (movie) => {
     if (activeGenre) {
       return movie.genres.join().includes(activeGenre);
@@ -73,8 +71,6 @@ const Main = () => {
     result = result.filter(filterSearch);
     setDisplayMovies(result);
   }, [activeGenre, activeQuery]);
-
-  console.log("-------result------", displayMovies);
 
   useEffect(() => {
     getMovies();
