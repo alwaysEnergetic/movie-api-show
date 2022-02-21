@@ -28,7 +28,7 @@ const Table = ({ props }) => {
         <h2> Movie Results:</h2>
         <table>
           <tbody>
-            <tr>
+            <tr className="title-row">
               <td>Title</td>
               <td>Image</td>
             </tr>

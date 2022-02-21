@@ -1,0 +1,101 @@
+table {
+    margin: 0 auto;
+    max-width: 90%;
+    display: inline-flex;
+    font-size: 13px;
+  }
+  
+  table td {
+    border: 2px black solid;
+    border-radius: 5px;
+    padding: 2%;
+    margin: 1%;
+    max-width: 15%;
+    min-width: 10vw;
+    background-color: rgb(67, 101, 128);
+  }
+  
+  .title-row td {
+    font-weight: bolder;
+    background-color: #494e5c;
+  }
+  
+  .search {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .search-bar {
+    padding: 1%;
+    width: 40vw;
+    max-width: 400px;
+  }
+  .search > div {
+    display: block;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+  }
+  
+  .search > div > button {
+    padding: 1%;
+    margin: 1%;
+    height: 3vh;
+    font-size: 0.75rem;
+    line-height: 0.75em;
+    width: 50%;
+  }
+  
+  .search > div > form > input {
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 0.8em;
+  }
+  
+  select {
+    text-transform: capitalize;
+    margin: 1%;
+    width: 10%;
+    font-size: 0.85rem;
+  }
+  
+  .pagination {
+    margin: 2%;
+    list-style-type: none;
+    max-width: 80%;
+    max-height: 10%;
+    text-align: center;
+  }
+  
+  .pagination a {
+    color: black;
+    background-color: rgb(67, 101, 128);
+    padding: 10px 15px;
+    margin: 10px;
+    float: left;
+    border-radius: 5px;
+  }
+  
+  .pagination a:hover {
+    background: #494e5c;
+    color: white;
+  }
+  
+  .footer {
+    width: 100%;
+    background-color: #282c34;
+    color: white;
+    display: block;
+    text-align: center;
+  }
+  
+  .App {
+    background-color: #282c34;
+    color: white;
+  }
+  
+  nav {
+    display: block;
+    text-align: center;
+  }
+  
