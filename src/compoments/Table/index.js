@@ -15,6 +15,14 @@ const Table = ({ props }) => {
   // Changes page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const tryRequire = (path) => {
+    try {
+      return require(`../../images/${path}.jpg`);
+    } catch (err) {
+      return require(`../../images/default.jpg`);
+    }
+  };
+
   if (!movies.length > 0) {
     return (
       <>
@@ -36,13 +44,19 @@ const Table = ({ props }) => {
               return (
                 <tr key={index}>
                   <td>{movie.title}</td>
-                  <td>"Image"</td>
+                  <td>
+                    <img src={tryRequire(`${movie.id}`)} alt={props.title} />
+                  </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-        <Pagination entriesPerPage={entriesPerPage} totalEntries={movies.length} paginate={paginate} />
+        <Pagination
+          entriesPerPage={entriesPerPage}
+          totalEntries={movies.length}
+          paginate={paginate}
+        />
       </>
     );
   }
