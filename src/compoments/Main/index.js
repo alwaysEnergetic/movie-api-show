@@ -3,10 +3,10 @@ import Table from "../Table";
 import Dropdown from "../Dropdown";
 import Search from "../Search";
 import { GENRES } from "./constants/genres";
-import { FAKEDATA } from "./constants/fakeData";
 import { useNavigate } from "react-router-dom";
 
 const Main = () => {
+  // set states
   const [movies, setMovies] = useState([]);
   const [displayMovies, setDisplayMovies] = useState([]);
   const [activeGenre, setActiveGenre] = useState("");
@@ -14,22 +14,22 @@ const Main = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
+
   const getMovies = async () => {
     setIsLoading(true);
-    // const response = await fetch("https://code-challenge.spectrumtoolbox.com/api/movies", {
-    //   headers: {
-    //     Authorization: "Api-Key q3MNxtfep8Gt",
-    //   },
-    // });
-    // const responseData = await response.json();
-    // const { movies } = responseData;
-    // setIsLoading(false);
-    // console.log("--------------movies------------", movies);
-    // setMovies(movies);
-    // setDisplayMovies(movies);
-
-    setMovies(FAKEDATA);
-    setDisplayMovies(FAKEDATA);
+    const response = await fetch(
+      "https://code-challenge.spectrumtoolbox.com/api/movies",
+      {
+        headers: {
+          Authorization: "Api-Key q3MNxtfep8Gt",
+        },
+      }
+    );
+    const responseData = await response.json();
+    const data = responseData.data;
+    setIsLoading(false);
+    setMovies(data);
+    setDisplayMovies(data);
   };
 
   const formHandler = (value) => {
@@ -71,7 +71,6 @@ const Main = () => {
   };
 
   const handleDetail = (id) => {
-    console.log("-----------id-----------", id);
     navigate("/details", { state: id });
     return;
   };
