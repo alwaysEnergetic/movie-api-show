@@ -52,6 +52,7 @@ const Table = (props) => {
                   </td>
                   <td>
                     <img
+                      className="image"
                       src={tryRequire(`${movie.id}`)}
                       alt={props.title}
                       onClick={() => {
