@@ -23,7 +23,6 @@ const Table = (props) => {
     }
   };
 
-  console.log("---------------", movies);
   if (!movies.length > 0) {
     return (
       <>

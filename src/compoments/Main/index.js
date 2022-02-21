@@ -70,6 +70,7 @@ const Main = () => {
 
   const handleDetail = (id) => {
     console.log("-----------id-----------", id);
+    return;
   };
 
   useEffect(() => {
