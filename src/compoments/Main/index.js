@@ -72,7 +72,7 @@ const Main = () => {
 
   const handleDetail = (id) => {
     console.log("-----------id-----------", id);
-    navigate(`/details/${id}`);
+    navigate("/details", { state: id });
     return;
   };
 

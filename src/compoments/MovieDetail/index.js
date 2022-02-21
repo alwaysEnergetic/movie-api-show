@@ -1,11 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const MovieDetail = (props) => {
-  const navigate = useNavigate();
+const MovieDetail = () => {
+  const location = useLocation();
+  console.log("----------location---------", location.state);
+
   return (
     <>
-      <h1>Test!</h1>
+      <h1>Movie Detail</h1>
     </>
   );
 };
