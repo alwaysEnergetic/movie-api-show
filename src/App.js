@@ -1,15 +1,19 @@
 import React from "react";
-import Header from "./compoments/Header";
-import Main from "./compoments/Main";
-import Footer from "./compoments/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./compoments/Home";
+import MovieDetail from "./compoments/MovieDetail";
+
 import "./App.css";
-import "./styles.css";
+
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Main />
-      <Footer />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/details" element={<MovieDetail />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

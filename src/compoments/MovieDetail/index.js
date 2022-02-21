@@ -1,25 +1,12 @@
 import React from "react";
-import "../../styles.css";
+import { useNavigate } from "react-router-dom";
 
 const MovieDetail = (props) => {
-  const opts = props.opts;
-
+  const navigate = useNavigate();
   return (
-    <form>
-      <label>Filter by Genre</label>
-      <select name="Genre" onChange={props.selectHandler}>
-        <option value="" defaultValue="">
-          All
-        </option>
-        {opts.map((item) => {
-          return (
-            <option key={item.id} value={item.name}>
-              {item.name}
-            </option>
-          );
-        })}
-      </select>
-    </form>
+    <>
+      <h1>Test!</h1>
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import Dropdown from "../Dropdown";
 import Search from "../Search";
 import { GENRES } from "./constants/genres";
 import { FAKEDATA } from "./constants/fakeData";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
@@ -12,6 +13,7 @@ const Main = () => {
   const [activeQuery, setActiveQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const navigate = useNavigate();
   const getMovies = async () => {
     setIsLoading(true);
     // const response = await fetch("https://code-challenge.spectrumtoolbox.com/api/restaurants", {
@@ -70,6 +72,7 @@ const Main = () => {
 
   const handleDetail = (id) => {
     console.log("-----------id-----------", id);
+    navigate(`/details/${id}`);
     return;
   };
 
