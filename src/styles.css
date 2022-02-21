@@ -100,9 +100,48 @@ table {
     color: white;
   }
   
-
   .image {
-    width: 90px;
-    height: 91px;
+    width: 9vw;
+    height: 17vh;
   }
-  
+
+  @media (max-width: 1660px) {
+    .image {
+      width:9vw;
+      height: 15vh;
+    }
+  } 
+
+  @media (max-width: 1440px) {
+    .image {
+      width:8vw;
+      height: 11vh;
+    }
+  }
+
+  @media (max-width: 1142px) {
+    .image {
+      width:8vw;
+      height: 10vh;
+    }
+  }
+
+  @media (max-width: 950px) {
+    .image {
+      width:8vw;
+      height: 6vh;
+    }
+  }
+
+  @media (max-width: 850px) {
+    .image {
+      width:8vw;
+      height: 6vh;
+    }
+  }
+  @media (max-width: 450px) {
+    .image {
+      width:10vw;
+      height: 8vh;
+    }
+  }

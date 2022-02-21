@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./detail.css";
 
 const MovieDetail = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const movieId = location.state;
 
   // const response = await fetch(
@@ -90,7 +91,6 @@ const MovieDetail = () => {
   const { title, id, releaseDate, genres, description, moods } =
     sampleData.data;
 
-  console.log("------------", title, moods, genres);
   return (
     <div className="container-wrap">
       <div className="movie-card-container">
@@ -116,6 +116,7 @@ const MovieDetail = () => {
           </div>
         </div>
       </div>
+      <button onClick={() => navigate(-1)}>Go Back</button>
     </div>
   );
 };

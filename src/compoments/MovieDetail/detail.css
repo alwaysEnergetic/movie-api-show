@@ -65,6 +65,17 @@ form button:active {
     flex: 4;
 }
 
+.image-container img {
+  object-fit: none;
+}
+.container-wrap button {
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  color:#2c7a13;
+  background-color: #393c46;
+}
+
 .bg-image {
     background-size: cover;
     background-repeat: no-repeat;
