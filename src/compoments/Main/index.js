@@ -16,7 +16,7 @@ const Main = () => {
   const navigate = useNavigate();
   const getMovies = async () => {
     setIsLoading(true);
-    // const response = await fetch("https://code-challenge.spectrumtoolbox.com/api/restaurants", {
+    // const response = await fetch("https://code-challenge.spectrumtoolbox.com/api/movies", {
     //   headers: {
     //     Authorization: "Api-Key q3MNxtfep8Gt",
     //   },
