@@ -67,7 +67,6 @@ const Main = () => {
 
   useEffect(() => {
     let result = movies.filter(filterGenre);
-
     result = result.filter(filterSearch);
     setDisplayMovies(result);
   }, [activeGenre, activeQuery]);

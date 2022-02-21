@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Pagination from "../Pagination";
 import "../../styles.css";
 
 const Table = ({ props }) => {
@@ -41,6 +42,7 @@ const Table = ({ props }) => {
             })}
           </tbody>
         </table>
+        <Pagination entriesPerPage={entriesPerPage} totalEntries={movies.length} paginate={paginate} />
       </>
     );
   }
