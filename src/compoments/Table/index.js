@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Pagination from "../Pagination";
 import "../../styles.css";
 
-const Table = ({ props }) => {
-  const movies = props;
+const Table = (props) => {
+  const movies = props.movies;
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage] = useState(10);
 
@@ -23,6 +23,7 @@ const Table = ({ props }) => {
     }
   };
 
+  console.log("---------------", movies);
   if (!movies.length > 0) {
     return (
       <>
@@ -43,9 +44,21 @@ const Table = ({ props }) => {
             {currentEntries.map((movie, index) => {
               return (
                 <tr key={index}>
-                  <td>{movie.title}</td>
+                  <td
+                    onClick={() => {
+                      props.handleDetail(movie.id);
+                    }}
+                  >
+                    {movie.title}
+                  </td>
                   <td>
-                    <img src={tryRequire(`${movie.id}`)} alt={props.title} />
+                    <img
+                      src={tryRequire(`${movie.id}`)}
+                      alt={props.title}
+                      onClick={() => {
+                        props.handleDetail(movie.id);
+                      }}
+                    />
                   </td>
                 </tr>
               );

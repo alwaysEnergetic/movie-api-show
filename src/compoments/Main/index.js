@@ -57,12 +57,19 @@ const Main = () => {
     if (activeQuery) {
       let standardTitle = movie.title.toLowerCase();
       let standardGenre = movie.genres.join().toLowerCase();
-      if (standardTitle.includes(activeQuery) || standardGenre.includes(activeQuery)) {
+      if (
+        standardTitle.includes(activeQuery) ||
+        standardGenre.includes(activeQuery)
+      ) {
         return movie;
       }
     } else {
       return movie;
     }
+  };
+
+  const handleDetail = (id) => {
+    console.log("-----------id-----------", id);
   };
 
   useEffect(() => {
@@ -79,7 +86,7 @@ const Main = () => {
     <>
       <Search formHandler={formHandler} clearSearch={clearSearch} />
       <Dropdown opts={GENRES} selectHandler={handleSelect} />
-      <Table props={displayMovies} />
+      <Table movies={displayMovies} handleDetail={handleDetail} />
       <h2>{isLoading ? "Loading" : ""}</h2>
     </>
   );
