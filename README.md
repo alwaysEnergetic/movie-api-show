@@ -1,9 +1,9 @@
-           Charter/Spectrum Front-End Code Challenge
+           #Charter/Spectrum Front-End Code Challenge
 Welcome! Thank you for taking our code challenge. We hope you enjoy this exercise. In short, you will be required to create 
 a React application that gets movie data from a simple REST API that we have provided. Then you will need to display that 
 data and allow a user to search, filter, and click for additional information.
 
-IMPORTANT: This should be delivered as a PRIVATE Github repository with access to these users:
+##IMPORTANT: This should be delivered as a PRIVATE Github repository with access to these users:
 
 • graysmith00, eugeneheo, jacobogart, anirudhlm
 API Endpoints: • https://code-challenge.spectrumtoolbox.com/api/movies
@@ -16,9 +16,9 @@ fetch(“https://code-challenge.spectrumtoolbox.com/api/movies”, {
  },
 });
 
-Images - A .zip file with images will be included with the movie IDs as the file names
+##Images - A .zip file with images will be included with the movie IDs as the file names
 
-User stories are as follows: 
+##User stories are as follows: 
 • A user should be able to view a home page with a list of movies with their image and title.
 • A user should be able to filter movies by genre. This filter should default to “All” and take immediate effect 
 when a selection is made. No additional clicks should be necessary when filtering.
@@ -28,7 +28,7 @@ when a selection is made. No additional clicks should be necessary when filterin
 • If any of the filters do not return any movies, the UI should indicate that no results were found. 
 • If the image for a specific movie is not found, the application should display the included “defaultImage”
 
-What we are looking for:
+##What we are looking for:
 • Deployed application
 • Modern styling with well-organized CSS
 • Using TypeScript is highly encouraged
@@ -42,7 +42,7 @@ What we are looking for:
 • Full Git history with atomic commits
 
 
-Stretch goals:
+##Stretch goals:
 • Unit tests
 • Pagination of movies on home screen
 • CI / CD
