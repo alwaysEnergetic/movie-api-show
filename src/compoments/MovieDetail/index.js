@@ -5,11 +5,9 @@ import "./detail.css";
 const MovieDetail = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [movieId, setMovieId] = useState("");
-
   const location = useLocation();
   const navigate = useNavigate();
-  setMovieId(location.state);
+  const movieId = location.state;
 
   const tryRequire = (path) => {
     try {
@@ -61,16 +59,11 @@ const MovieDetail = () => {
             <div>
               <h1>{movie.title}</h1>
               <small>Released Date: {movie.releaseDate}</small>
-              <h4 className="genres-container">
+
+              <p>{movie.description && movie.description.substring(0, 350)}</p>
+              <div className="tags-container">
                 Generes:{" "}
                 {movie.genres.map((item, index) => (
-                  <span key={index}>{item}</span>
-                ))}
-              </h4>
-              <p>{movie.description.substring(0, 350)}</p>
-              <div className="tags-container">
-                Moods:{" "}
-                {movie.moods.map((item, index) => (
                   <span key={index}>{item}</span>
                 ))}
               </div>
