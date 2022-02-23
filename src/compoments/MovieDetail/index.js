@@ -5,34 +5,11 @@ import "./detail.css";
 const MovieDetail = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [movieId, setMovieId] = useState("");
+
   const location = useLocation();
   const navigate = useNavigate();
-  const movieId = location.state;
-
-  const getMovie = async () => {
-    setLoading(true);
-    const response = await fetch(
-      `https://code-challenge.spectrumtoolbox.com/api/movies/${movieId}`,
-      {
-        headers: {
-          Authorization: "Api-Key q3MNxtfep8Gt",
-        },
-      }
-    );
-    const responseData = await response.json();
-    const data = responseData.data;
-    setLoading(false);
-    responseData.message === "success"
-      ? setMovie({
-          title: data.title,
-          id: data.id,
-          genres: data.genres,
-          releaseDate: data.releaseDate,
-          description: data.description,
-          moods: data.moods,
-        })
-      : setMovie("Not Found");
-  };
+  setMovieId(location.state);
 
   const tryRequire = (path) => {
     try {
@@ -43,6 +20,30 @@ const MovieDetail = () => {
   };
 
   useEffect(() => {
+    const getMovie = async () => {
+      setLoading(true);
+      const response = await fetch(
+        `https://code-challenge.spectrumtoolbox.com/api/movies/${movieId}`,
+        {
+          headers: {
+            Authorization: "Api-Key q3MNxtfep8Gt",
+          },
+        }
+      );
+      const responseData = await response.json();
+      const data = responseData.data;
+      setLoading(false);
+      responseData.message === "success"
+        ? setMovie({
+            title: data.title,
+            id: data.id,
+            genres: data.genres,
+            releaseDate: data.releaseDate,
+            description: data.description,
+            moods: data.moods,
+          })
+        : setMovie("Not Found");
+    };
     getMovie();
   }, [movieId]);
 

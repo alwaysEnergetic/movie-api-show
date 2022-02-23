@@ -15,23 +15,6 @@ const Main = () => {
 
   const navigate = useNavigate();
 
-  const getMovies = async () => {
-    setIsLoading(true);
-    const response = await fetch(
-      "https://code-challenge.spectrumtoolbox.com/api/movies",
-      {
-        headers: {
-          Authorization: "Api-Key q3MNxtfep8Gt",
-        },
-      }
-    );
-    const responseData = await response.json();
-    const data = responseData.data;
-    setIsLoading(false);
-    setMovies(data);
-    setDisplayMovies(data);
-  };
-
   const formHandler = (value) => {
     let standardValue = value.toLowerCase();
     setActiveQuery(standardValue);
@@ -47,41 +30,57 @@ const Main = () => {
     setActiveGenre(targetValue);
   };
 
-  const filterGenre = (movie) => {
-    if (activeGenre) {
-      return movie.genres.join().includes(activeGenre);
-    } else {
-      return movie;
-    }
-  };
-
-  const filterSearch = (movie) => {
-    if (activeQuery) {
-      let standardTitle = movie.title.toLowerCase();
-      let standardGenre = movie.genres.join().toLowerCase();
-      if (
-        standardTitle.includes(activeQuery) ||
-        standardGenre.includes(activeQuery)
-      ) {
-        return movie;
-      }
-    } else {
-      return movie;
-    }
-  };
-
   const handleDetail = (id) => {
     navigate("/details", { state: id });
     return;
   };
 
   useEffect(() => {
+    const filterSearch = (movie) => {
+      if (activeQuery) {
+        let standardTitle = movie.title.toLowerCase();
+        let standardGenre = movie.genres.join().toLowerCase();
+        if (
+          standardTitle.includes(activeQuery) ||
+          standardGenre.includes(activeQuery)
+        ) {
+          return movie;
+        }
+      } else {
+        return movie;
+      }
+    };
+
+    const filterGenre = (movie) => {
+      if (activeGenre) {
+        return movie.genres.join().includes(activeGenre);
+      } else {
+        return movie;
+      }
+    };
+
     let result = movies.filter(filterGenre);
     result = result.filter(filterSearch);
     setDisplayMovies(result);
-  }, [activeGenre, activeQuery]);
+  }, [activeGenre, activeQuery, movies]);
 
   useEffect(() => {
+    const getMovies = async () => {
+      setIsLoading(true);
+      const response = await fetch(
+        "https://code-challenge.spectrumtoolbox.com/api/movies",
+        {
+          headers: {
+            Authorization: "Api-Key q3MNxtfep8Gt",
+          },
+        }
+      );
+      const responseData = await response.json();
+      const data = responseData.data;
+      setIsLoading(false);
+      setMovies(data);
+      setDisplayMovies(data);
+    };
     getMovies();
   }, []);
 

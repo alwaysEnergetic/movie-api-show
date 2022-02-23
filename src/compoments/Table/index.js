@@ -17,9 +17,9 @@ const Table = (props) => {
 
   const tryRequire = (path) => {
     try {
-      return require(`../../images/${path}.jpg`);
+      return require(`../../images/${path}.jpeg`);
     } catch (err) {
-      return require(`../../images/default.jpg`);
+      return require(`../../images/defaultImage.jpeg`);
     }
   };
 
