@@ -44,6 +44,8 @@ table {
     font-size: 0.75rem;
     line-height: 0.75em;
     width: 50%;
+    max-width: 400px;
+    border-radius: 7px;
   }
   
   .search > div > form > input {

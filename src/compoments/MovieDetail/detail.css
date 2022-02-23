@@ -26,6 +26,7 @@ form input {
     padding: 10px 15px;
     height: 40px;
     min-width: 300px;
+    border-radius: 7px;
 }
 
 form button {
