@@ -1,6 +1,6 @@
 # Charter/Spectrum Front-End Code Challenge
 
-For this challenge we would like you to create a React application that pulls movie data from a simple REST API, displays that data in a table, and allows users to filter that data.
+For this challenge we would like you to create a React application that pulls movie data from a simple REST API, displays that data in a table, and allows users to filter that data and also to browse detail of movie
 
 ## User Stories
 
